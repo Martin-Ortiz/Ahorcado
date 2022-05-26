@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/botones.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="shortcut icon" href="src/man.png">
+
+    <title>Juego del Ahorcado</title>
+</head>
+
+<body>
+    <header>
+        <div class="titulo">
+            <h2>Ahorcado</h2>
+            <h2>Ahorcado</h2>
+        </div>
+        <div class="logo">
+            <h1>a</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="lienzo">
+            <canvas id="areaDibujo"> </canvas>
+        </section>
+        
+        <section class="contenedor-letras" id="cajaLetras">
+            
+        </section>
+        <section class="contenedor-letras-erroneas">
+            <label class="letras-equivocadas" id="contenedorError" for=""></label>
+        </section>
+        <section class="contenedor-letra">
+            <input class="letra" type="text" name="" id="letraIngresada" placeholder="Ingresa una letra...">
+        </section>
+        <section class="contenedor-btns">
+            <input class="btn-inicio" id="nuevoJuego" type="button" value="Nuevo Juego">
+            <a class="btn-link" href="index.html"><input class="btn-inicio" type="button" value="Desistir"></a>
+        </section>
+    </main>
+
+    <footer>
+        <section class="logos-redes">
+            <a href="https://github.com/Martin-Ortiz"><img class="icono-pie" src="src/github.png" alt="" srcset=""></a>
+            <a href="https://www.linkedin.com/in/ortizdmdev"><img class="icono-pie" src="src/linkedin.png" alt="" srcset=""></a>
+            <a href="https://www.facebook.com/martin.leo.17"><img class="icono-pie" src="src/facebook.png" alt="" srcset=""></a>
+        </section>
+        <p class="autor">Created by Martin Ortiz</p>
+        
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/dibujo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+.contenedor{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.btn-inicio{
+    display: block;
+    background-color: #0AA1DD;
+    box-shadow: #094c66 4px 4px 0px;
+    border-radius: 8px;
+    border-color: #2155CD;
+    transition: transform 200ms, box-shadow 200ms;
+    width: 20rem;
+    height: 5rem;
+    color: white;
+    font-size: 30px;
+    margin: 20px;
+}
+
+.btn-inicio:active{
+    transform: translateY(4px) translateX(4px);
+    box-shadow: #094cc6 0px 0px 0px;
+}
+
+.btn-inicio:hover{
+    background-color: #79DAE8;
+}
+
+.btn-link{
+    text-decoration: none;
+}
+

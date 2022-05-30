@@ -7,6 +7,7 @@ var nuevoJuego = document.getElementById("nuevoJuego");
 nuevoJuego.addEventListener("click", juegoNuevo)
 
 var letraIngresada = document.getElementById("letraIngresada");
+letraIngresada.addEventListener("input", validarLetra)
 
 
 //obtener Arreglo de palabras del almacenamiento local

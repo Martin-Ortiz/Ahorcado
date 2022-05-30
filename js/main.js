@@ -7,8 +7,7 @@ var nuevoJuego = document.getElementById("nuevoJuego");
 nuevoJuego.addEventListener("click", juegoNuevo)
 
 var letraIngresada = document.getElementById("letraIngresada");
-letraIngresada.addEventListener("input", validarLetra)
-
+letraIngresada.addEventListener("input", validarLetraInput);
 
 //obtener Arreglo de palabras del almacenamiento local
 palabras = JSON.parse(localStorage.getItem('myArray'));
@@ -119,6 +118,84 @@ function validarLetra(evObject) {
         }
         
     }
+    
+
+}
+
+/*--------Validacion del input text letra------*/
+function validarLetraInput(evObject) {
+    //existencia de letra correcta
+    var existe;
+
+    // Existencia de letra erronea
+    var errorExiste;
+
+    // preparacion de datos de entrada Woojuuuu! :-)
+    var letraPresionada = letraIngresada.value;
+    letraPresionada = letraPresionada.charCodeAt(0);
+
+    //convertimos "palabra" en un array de letras 
+    letras = Array.from(palabra)
+
+    // array para comparar resultados
+    var arrayNuevo = new Array()
+    
+    //comienza la validacion
+    
+
+    if (intentos > 0 && !juegoGanado) {
+        
+        if ((letraPresionada > 64 && letraPresionada < 91) || (letraPresionada > 96 && letraPresionada < 123)) {
+
+            letraPresionada = String.fromCharCode(letraPresionada).toUpperCase();
+
+            for (i = 0; i < letras.length; i++) {
+
+                if (letraPresionada == letras[i]) {
+                    arrayPalabra[i].textContent = letraPresionada
+                    existe = true;
+                }
+            }
+
+            // Se valora si existe la letra presionada o no y se dibuja parte del dibujo
+            if (!existe) {
+
+                for (j = 0; j < letrasError.length; j++) {
+                    if (letraPresionada == letrasError[j]) {
+                        errorExiste = true;
+                    }
+                }
+
+                if (!errorExiste) {
+                    error++;
+                    letrasError.push(letraPresionada);
+                    dibujar(error)
+                    intentos--;
+                    contenedorError.textContent=letrasError.join("")
+                }
+            }
+
+            // Mensaje ganador
+            for (i = 0; i < arrayPalabra.length; i++) {
+                arrayNuevo.push(arrayPalabra[i].textContent)
+            }
+
+            if (JSON.stringify(letras) === JSON.stringify(arrayNuevo) && intentos > 0) {
+                swal("Felicidades!", "Has descubierto la palabra secreta!", "success");
+                juegoGanado=true;
+            }
+
+            //Mensaje perdedor
+            if (intentos == 0) {
+                swal("Has perdido!", "Respuesta: " + palabra, "error");
+            }
+
+        }
+        
+    }
+
+    // Borrar letra ingresada
+    letraIngresada.value = "";
     
 
 }

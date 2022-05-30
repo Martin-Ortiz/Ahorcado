@@ -1,9 +1,35 @@
 var btnAgregarPalabra = document.getElementById("agregarPalabra");
-btnAgregarPalabra.addEventListener("click", palabraNueva)
+btnAgregarPalabra.addEventListener("click", validarPalabra)
 palabra = document.getElementById("palabraNueva");
 
 
 palabras = JSON.parse(localStorage.getItem('myArray'));
+
+
+function validarPalabra() {
+    var letraValida = false;
+    var caracterInvalido = 0;
+
+    letras = Array.from(palabra.value)
+    
+    for (i = 0; i < letras.length; i++) {
+
+        valorNum = letras[i].charCodeAt(0);
+        if (valorNum > 64 && valorNum < 91 || valorNum > 96 && valorNum < 123) {
+            letraValida = true;
+        } else {
+            caracterInvalido++;
+        }
+    }
+
+
+    if (letraValida && caracterInvalido == 0) {
+        palabraNueva();
+    } else {
+        swal("Solo se aceptan letras Mayúsculas, sin acentos y sin espacios!");
+    }
+
+}
 
 
 function palabraNueva() {
@@ -12,10 +38,6 @@ function palabraNueva() {
         if (palabras[i] == palabra.value.toUpperCase()) {
             swal("La palabra ingresada ya existe!");
             existe = true;
-            i = palabras.length
-        } else if (palabra.value == "") {
-            swal("Debes de ingresar al menos una letra!");
-            existe=true;    
             i = palabras.length
         }
     }
@@ -29,7 +51,7 @@ function palabraNueva() {
 
         setTimeout(function () {
             location.href = "game.html"
-        }, 3000);
+        }, 2000);
 
     }
 

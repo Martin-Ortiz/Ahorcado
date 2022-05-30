@@ -64,12 +64,12 @@ function validarLetra(evObject) {
 
     // array para comparar resultados
     var arrayNuevo = new Array()
-    
+
     //comienza la validacion
-    
+
 
     if (intentos > 0 && !juegoGanado) {
-        
+
         if ((letraPresionada > 64 && letraPresionada < 91) || (letraPresionada > 96 && letraPresionada < 123)) {
 
             letraPresionada = String.fromCharCode(letraPresionada).toUpperCase();
@@ -96,7 +96,7 @@ function validarLetra(evObject) {
                     letrasError.push(letraPresionada);
                     dibujar(error)
                     intentos--;
-                    contenedorError.textContent=letrasError.join("")
+                    contenedorError.textContent = letrasError.join("")
                 }
             }
 
@@ -107,7 +107,7 @@ function validarLetra(evObject) {
 
             if (JSON.stringify(letras) === JSON.stringify(arrayNuevo) && intentos > 0) {
                 swal("Felicidades!", "Has descubierto la palabra secreta!", "success");
-                juegoGanado=true;
+                juegoGanado = true;
             }
 
             //Mensaje perdedor
@@ -116,9 +116,9 @@ function validarLetra(evObject) {
             }
 
         }
-        
+
     }
-    
+
 
 }
 
@@ -139,12 +139,12 @@ function validarLetraInput(evObject) {
 
     // array para comparar resultados
     var arrayNuevo = new Array()
-    
+
     //comienza la validacion
-    
+
 
     if (intentos > 0 && !juegoGanado) {
-        
+
         if ((letraPresionada > 64 && letraPresionada < 91) || (letraPresionada > 96 && letraPresionada < 123)) {
 
             letraPresionada = String.fromCharCode(letraPresionada).toUpperCase();
@@ -171,7 +171,7 @@ function validarLetraInput(evObject) {
                     letrasError.push(letraPresionada);
                     dibujar(error)
                     intentos--;
-                    contenedorError.textContent=letrasError.join("")
+                    contenedorError.textContent = letrasError.join("")
                 }
             }
 
@@ -182,7 +182,7 @@ function validarLetraInput(evObject) {
 
             if (JSON.stringify(letras) === JSON.stringify(arrayNuevo) && intentos > 0) {
                 swal("Felicidades!", "Has descubierto la palabra secreta!", "success");
-                juegoGanado=true;
+                juegoGanado = true;
             }
 
             //Mensaje perdedor
@@ -191,15 +191,21 @@ function validarLetraInput(evObject) {
             }
 
         }
-        
+
     }
 
     // Borrar letra ingresada
     letraIngresada.value = "";
-    
+
 
 }
 
-function juegoNuevo(){
+function juegoNuevo() {
     location.reload()
+}
+
+//ocultar pie en juego
+pantalla = document.getElementById("pie")
+if (screen.width < 480) {
+    pie.style.display = "none";
 }

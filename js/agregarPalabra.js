@@ -7,27 +7,33 @@ palabras = JSON.parse(localStorage.getItem('myArray'));
 
 
 function validarPalabra() {
-    var letraValida = false;
-    var caracterInvalido = 0;
 
-    letras = Array.from(palabra.value)
-    
-    for (i = 0; i < letras.length; i++) {
+    if (palabra.value.length < 9) {
+        var letraValida = false;
+        var caracterInvalido = 0;
 
-        valorNum = letras[i].charCodeAt(0);
-        if (valorNum > 64 && valorNum < 91 || valorNum > 96 && valorNum < 123) {
-            letraValida = true;
-        } else {
-            caracterInvalido++;
+        letras = Array.from(palabra.value)
+
+        for (i = 0; i < letras.length; i++) {
+
+            valorNum = letras[i].charCodeAt(0);
+            if (valorNum > 64 && valorNum < 91 || valorNum > 96 && valorNum < 123) {
+                letraValida = true;
+            } else {
+                caracterInvalido++;
+            }
         }
-    }
 
 
-    if (letraValida && caracterInvalido == 0) {
-        palabraNueva();
-    } else {
-        swal("Solo se aceptan letras Mayúsculas, sin acentos y sin espacios!");
+        if (letraValida && caracterInvalido == 0) {
+            palabraNueva();
+        } else {
+            swal("Solo se aceptan letras Mayúsculas, sin acentos y sin espacios!");
+        }
+    }else{
+        swal("Recuerda que como maximo son 8 letras.")
     }
+
 
 }
 
